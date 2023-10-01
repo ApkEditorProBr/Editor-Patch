@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="estilo.css">
+  <script src="jszip.min.js"></script>
+</head>
+<body>
+    <h1>Editor_Patch</h1>
+    </br>
+    
+    <center>
+    <label for="file-input" id="file-label">Selecione o arquivo zip</label>
+    <input type="file" id="file-input" accept=".zip">
+    </center>
+    </br>
+    <div class="editor">
+        <div id="lineNumbers"></div>
+        <textarea id="editorContent" placeholder="" rows="10" oninput="updateLineNumbers()"></textarea>
+    </div>
+    <button id="save-btn">Salvar</button>
+</body>
+
+<script src="script.js"></script>
+</html>
