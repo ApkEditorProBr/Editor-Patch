@@ -1,25 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="estilo.css">
   <script src="jszip.min.js"></script>
 </head>
 <body>
-    <h1>Editor_Patch</h1>
+    <div class="terminal">
+     <div class="terminal-header">
+      <span class="red-dot"></span>
+      <span class="yellow-dot"></span>
+      <span class="green-dot"></span>
+     </div>
+     <div class="terminal-body">
+      <p class="boas_vindas">Bem-vindo ao Editor de Patches!<br>
+</br>Aqui você pode carregar seu arquivo ou criar um patch diretamente.</p>
+     <div class="editor">
+     <textarea id="editorContent" placeholder="" rows="10" oninput="updateLineNumbers()">[MIN_ENGINE_VER]
+1
+
+[AUTHOR]
+apkeditor
+
+[PACKAGE]
+*
+
+#Verifique se o nome do aplicativo está definido nos recursos
+[MATCH_GOTO]
+TARGET:
+    AndroidManifest.xml
+MATCH:
+    <application (.*)android:label="@string/(.*)"(.*)>
+REGEX:
+    true
+GOTO:
+    get_string_name
+[/MATCH_GOTO]
+
+# android:label=" -> android:label="2-
+[MATCH_REPLACE]
+NAME:
+    directly_rename
+TARGET:
+    AndroidManifest.xml
+MATCH:
+    <application (.*)android:label="(.*)>
+REGEX:
+    true
+REPLACE:
+    <application ${GROUP1}android:label="2-${GROUP2}>
+[/MATCH_REPLACE]
+
+[GOTO]
+GOTO:
+    end
+[/GOTO]
+
+#Obtenha o nome da string e atribua-o a STR_NAME
+[MATCH_ASSIGN]
+NAME:
+    get_string_name
+TARGET:
+    AndroidManifest.xml
+MATCH:
+    <application (.*)android:label="@string/(.*)"(.*)>
+REGEX:
+    true
+ASSIGN:
+    STR_NAME=${GROUP2}
+[/MATCH_ASSIGN]
+
+#Adicione algum código dentro do método onCreate após "invoke-super xxx"
+[MATCH_REPLACE]
+NAME:
+    modify_string_xml
+TARGET:
+    res/values/strings.xml
+MATCH:
+    <string name="${STR_NAME}">
+REGEX:
+    true
+REPLACE:
+    <string name="${STR_NAME}">2-
+[/MATCH_REPLACE]
+
+[DUMMY]
+NAME:
+    end
+[/DUMMY]</textarea>
+    <br>
     </br>
-    
-    <center>
     <label for="file-input" id="file-label">Selecione o arquivo zip</label>
     <input type="file" id="file-input" accept=".zip">
-    </center>
-    </br>
-    <div class="editor">
-        <div id="lineNumbers"></div>
-        <textarea id="editorContent" placeholder="" rows="10" oninput="updateLineNumbers()"></textarea>
-    </div>
+    <button class="limpar" onclick="limpar()">Limpar</button>
     <button id="save-btn">Salvar</button>
-</body>
+    
+<script src="script.js" defer></script>
 
-<script src="script.js"></script>
+</body>
 </html>
