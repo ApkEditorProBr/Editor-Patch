@@ -8,13 +8,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: none;
   user-select: none;
 }
 
 /* Estilização do conteúdo do editor */
 #editorContent {
-  width: 95%;
+  width: 99%;
   height: 250px;
   font-family: 'Courier New', Courier, monospace;
   color: white;
@@ -143,4 +143,21 @@ body {
 /* Estilização dos parágrafos do corpo do terminal */
 .terminal-body p {
   margin-bottom: 10px;
+}
+
+/* Estilização da barra de rolagem do textarea */
+textarea::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Estilização do polegar da barra de rolagem do textarea */
+textarea::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 2px; 
+}
+
+/* Estilização da faixa de rolagem da barra do textarea */
+textarea::-webkit-scrollbar-track {
+  background-color: black;
+   }
 }
