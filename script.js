@@ -1,23 +1,6 @@
-//Função para atualizar os números das linhas
-function updateLineNumbers() {
-    //Obtém a div que irá exibir os números das linhas
-    let lineNumberDiv = document.getElementById("lineNumbers");
-    //Obtém o conteúdo do editor
-    let editorContent = document.getElementById("editorContent");
-
-    //Divide o conteúdo do editor em linhas
-    let lines = editorContent.value.split("\n");
-    //Inicializa a variável para armazenar os números das linhas
-    let lineNumbers = "";
-
-    //Loop para percorrer todas as linhas
-    for (let i = 0; i < lines.length; i++) {
-        //Adiciona o número da linha ao conteúdo
-        lineNumbers += (i + 0) + "<br>";
-    }
-
-    //Atualiza o conteúdo da div com os números das linhas
-    lineNumberDiv.innerHTML = lineNumbers;
+//Limpar o conteúdo do "texarea". 
+function limpar() {
+  document.getElementById("editorContent").value = "";
 }
 
 //Função que é executada quando a janela é carregada
