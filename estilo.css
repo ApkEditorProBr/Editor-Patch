@@ -85,7 +85,7 @@ body {
 .terminal {
   width: 340px;
   background-color: #666;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   height: 470px;
 }
@@ -93,15 +93,15 @@ body {
 /* Estilização do cabeçalho do terminal */
 .terminal-header {
   background-color: #333;
-  height: 30px;
+  height: 20px;
   display: flex;
-  padding: 5px;
+  padding: 10px;
 }
 
 /* Estilização dos pontos do cabeçalho do terminal */
 .red-dot, .yellow-dot, .green-dot {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   margin-right: 5px;
   padding: 3px;
