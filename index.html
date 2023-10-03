@@ -9,172 +9,27 @@
 <body>
     <div class="terminal">
      <div class="terminal-header">
-      <span class="red-dot"></span>
-      <span class="yellow-dot"></span>
-      <span class="green-dot"></span>
+      <span class="red-dot cinza"></span>
+      <span class="yellow-dot cinza"></span>
+      <span class="green-dot cinza"></span>
      </div>
      <div class="terminal-body">
-      <p class="boas_vindas">Bem-vindo ao Editor de Patches!<br>
-</br>Aqui você pode carregar seu arquivo ou criar um patch diretamente.</p>
+      <p class="boas_vindas">Seja bem-vindo ao editor de patch!<br>
+</br>Aqui você pode carregar seu arquivo ou criar um patch diretamente.<br>
+</br>
+</p>
      <div class="editor">
-     <textarea id="editorContent" placeholder="" rows="10" oninput="updateLineNumbers()">[MIN_ENGINE_VER]
-3
-
-[AUTHOR]
-BruMarti
-
-[PACKAGE]
-*
-
-#Excluir idiomas!
-[REMOVE_FILES]
-TARGET:
-      res/values-af
-      res/values-am
-      res/values-ar
-      res/values-as
-      res/values-az
-      res/values-be
-      res/values-bg
-      res/values-bn
-      res/values-bs
-      res/values-ca
-      res/values-cs
-      res/values-da
-      res/values-de
-      res/values-el
-      res/values-es
-      res/values-et
-      res/values-eu
-      res/values-fa
-      res/values-fi
-      res/values-fr
-      res/values-gl
-      res/values-gu
-      res/values-hi
-      res/values-hr
-      res/values-hu
-      res/values-hy
-      res/values-in
-      res/values-is
-      res/values-it
-      res/values-iw
-      res/values-ja
-      res/values-ka
-      res/values-kk
-      res/values-km
-      res/values-kn
-      res/values-ko
-      res/values-ky
-      res/values-lo
-      res/values-lt
-      res/values-lv
-      res/values-mk
-      res/values-ml
-      res/values-mn
-      res/values-mr
-      res/values-ms
-      res/values-my
-      res/values-nb
-      res/values-ne
-      res/values-nl
-      res/values-or
-      res/values-pa
-      res/values-pl
-      res/values-ro
-      res/values-ru
-      res/values-si
-      res/values-sk
-      res/values-sl
-      res/values-sq
-      res/values-sr
-      res/values-sv
-      res/values-sw
-      res/values-ta
-      res/values-te
-      res/values-th
-      res/values-tl
-      res/values-tr
-      res/values-uk
-      res/values-ur
-      res/values-uz
-      res/values-vi
-      res/values-zh
-      res/values-zu
-      res/values-en
-      res/values-pt-BR
-      res/values-pt-rBR
-      res/values-pt-PT
-      res/values-pt-rPT
-      res/values-es-US
-      res/values-fr-CA
-      res/values-my-MM
-      res/values-az-rAZ
-      res/values-b+sr+Latn
-      res/values-be-rBY
-      res/values-bn-rBD
-      res/values-bs-rBA
-      res/values-en-rAU
-      res/values-en-rCA
-      res/values-en-rGB
-      res/values-en-rIN
-      res/values-en-rXC
-      res/values-es-rUS
-      res/values-et-rEE
-      res/values-eu-rES
-      res/values-fr-rCA
-      res/values-gl-rES
-      res/values-gu-rIN
-      res/values-hy-rAM
-      res/values-is-rIS
-      res/values-ka-rGE
-      res/values-kk-rKZ
-      res/values-km-rKH
-      res/values-kn-rIN
-      res/values-ky-rKG
-      res/values-lo-rLA
-      res/values-mk-rMK
-      res/values-ml-rIN
-      res/values-mn-rMN
-      res/values-mr-rIN
-      res/values-ms-rMY
-      res/values-my-rMM
-      res/values-ne-rNP
-      res/values-en-rNZ
-      res/values-pa-rIN
-      res/values-si-rLK
-      res/values-sq-rAL
-      res/values-ta-rIN
-      res/values-te-rIN
-      res/values-ur-rPK
-      res/values-uz-rUZ
-      res/values-zh-land
-      res/values-zh-rCN
-      res/values-zh-rHK
-      res/values-zh-rTW
-      res/values-en-AU
-      res/values-en-CA
-      res/values-en-GB
-      res/values-en-IN
-      res/values-en-US
-      res/values-en-XA
-      res/values-en-rNZ
-      res/values-zh-CN
-      res/values-zh-HK
-      res/values-zh-TW
-      res/values-sr-Latn
-[/REMOVE_FILES]</textarea>
+     <textarea id="editorContent" placeholder="" rows="10" oninput="updateLineNumbers()"></textarea>
     <br>
     </br>
     
-    <label for="file-input" id="file-label">Selecione o arquivo ZIP</label>
+    <label for="file-input" id="file-label" onclick="LuzVerde()">Selecione o arquivo zip</label>
 <input type="file" id="file-input" onchange="validateFile(this)" accept=".zip">
-    <button id="save-btn">Salvar</button>
-    <button class="limpar" onclick="limpar()">Limpar</button>
 <label for="fileInput_1" id="file-label">+1</label>
-<input type="file" id="fileInput_1" class="file-input" multiple>
-    	
-<script src="script.js" defer></script>
-
+<input type="file" id="fileInput_1" class="file-input" onclick="LuzVerde()">
+    <button id="save-btn" onclick="LuzVerde()">Salvar</button>
+    <button class="limpar" onclick="limpar(LuzVerde())">Limpar</button>
+	
+    <script src="script.js" defer></script>
 </body>
 </html>
