@@ -87,7 +87,7 @@ body {
   background-color: #666;
   border-radius: 5px;
   overflow: hidden;
-  height: 80%;
+  height: none;
 }
 
 /* Estilização do cabeçalho do terminal */
