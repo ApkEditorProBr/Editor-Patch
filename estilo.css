@@ -14,7 +14,7 @@ body {
 
 /* Estilização do conteúdo do editor */
 #editorContent {
-  width: 97%;
+  width: 95%;
   height: 250px;
   font-family: 'Courier New', Courier, monospace;
   color: white;
@@ -32,7 +32,7 @@ body {
   margin-right: 5px;
   font-size: 11px;
   left: 0;
-  top: -20;
+  top: -10;
   float: right;
   padding: 0.5em 1em;
   border: none;
@@ -48,7 +48,7 @@ body {
   margin-right: 5px;
   font-size: 11px;
   left: 0;
-  top: -18;
+  top: -10;
   float: right;
   padding: 0.5em 1em;
   border: none;
@@ -62,7 +62,6 @@ body {
 /* Estilização do rótulo do arquivo */
 #file-label {
   font-size: 11px;
-  top: -10;
   padding: 0.5em 1em;
   border: none;
   color: rgb(255, 255, 255);
@@ -157,7 +156,7 @@ textarea::-webkit-scrollbar-track {
   margin-right: 5px;
   font-size: 11px;
   float: left;
-  top: -15;
+  top: -10;
   padding: 0.5em 1em;
   border: none;
   outline: none;
