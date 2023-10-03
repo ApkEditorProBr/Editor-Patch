@@ -1,4 +1,47 @@
-//Limpar o conteúdo do "texarea". 
+function packFiles() {
+  // Obtém todos os elementos de entrada de arquivo com a classe 'file-input'
+  var fileInputs = document.getElementsByClassName('file-input');
+  // Cria uma nova instância da classe JSZip
+  var zip = new JSZip();
+
+  // Percorre todos os elementos de entrada de arquivo
+  for (var i = 0; i < fileInputs.length; i++) {
+    var files = fileInputs[i].files;
+
+    // Percorre todos os arquivos selecionados
+    for (var j = 0; j < files.length; j++) {
+      var file = files[j];
+      // Adiciona o arquivo ao zip utilizando o nome original como chave
+      zip.file(file.name, file);
+    }
+  }
+
+  // Gera o zip assincronamente
+  zip.generateAsync({ type: 'blob' }).then(function(content) {
+    // Obtém o elemento de link de download pelo ID
+    var downloadLink = document.getElementById('downloadLink');
+    // Define o href do link como o URL do conteúdo do zip
+    downloadLink.href = URL.createObjectURL(content);
+    // Exibe o link de download
+    downloadLink.style.display = 'inline';
+  });
+}
+
+function validateFile(input) {
+  // Define a expressão regular para validar as extensões permitidas
+  const allowedExtensions = /(\.zip)$/i;
+  const file = input.files[0];
+  
+  // Verifica se a extensão do arquivo selecionado não está de acordo com a expressão regular
+  if (!allowedExtensions.test(file.name)) {
+    // Exibe um alerta ao usuário
+    alert("Por favor, selecione um arquivo zip válido.");
+    // Limpa o valor do arquivo selecionado
+    input.value = '';
+  }
+}
+
+//Limpar o conteúdo do "textarea". 
 function limpar() {
   document.getElementById("editorContent").value = "";
 }
@@ -11,6 +54,8 @@ window.onload = function() {
   const editor = document.getElementById('editorContent');
   //Obtém o botão de salvar pelo seu ID
   const saveBtn = document.getElementById('save-btn');
+  //Obtém o botão +1 pelo seu ID
+  const addFileBtn = document.getElementById('file-label');
 
   //Adiciona um ouvinte de evento para quando o arquivo de entrada for alterado
   fileInput.addEventListener('change', function(event) {
@@ -61,6 +106,18 @@ window.onload = function() {
     //Adiciona o texto como um arquivo no zip
     zip.file('patch.txt', text);
 
+    // Adiciona os arquivos selecionados no zip 
+    const fileInputs = document.getElementsByClassName('file-input');
+
+    for (var i = 0; i < fileInputs.length; i++) {
+      var files = fileInputs[i].files;
+
+      for (var j = 0; j < files.length; j++) {
+        var file = files[j];
+        zip.file(file.name, file);
+      }
+    }
+
     //Gera o zip assincronamente
     zip.generateAsync({ type: 'blob' })
       .then(function(content) {
@@ -74,5 +131,24 @@ window.onload = function() {
         //Clica no link de download
         downloadLink.click();
       });
+  });
+
+  //Adiciona um ouvinte de evento para quando o botão +1 for clicado
+  addFileBtn.addEventListener('click', function() {
+    //Cria um novo elemento de input file
+    const newFileInput = document.createElement('input');
+    newFileInput.type = 'file';
+    newFileInput.classList.add('file-input');
+
+    //Cria um novo label
+    const newFileLabel = document.createElement('label');
+    newFileLabel.htmlFor = 'file-input';
+    newFileLabel.textContent = '+' + (fileInputs.length + 1);
+
+    //Insere o novo elemento entre o botão de salvar e o botão de limpar
+    const limparBtn = document.getElementsByClassName('limpar')[0];
+    const parentDiv = limparBtn.parentNode;
+    parentDiv.insertBefore(newFileInput, limparBtn);
+    parentDiv.insertBefore(newFileLabel, limparBtn);
   });
 }
