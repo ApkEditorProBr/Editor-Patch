@@ -17,85 +17,18 @@
       <p class="boas_vindas">Bem-vindo ao Editor de Patches!<br>
 </br>Aqui você pode carregar seu arquivo ou criar um patch diretamente.</p>
      <div class="editor">
-     <textarea id="editorContent" placeholder="" rows="10" oninput="updateLineNumbers()">[MIN_ENGINE_VER]
-1
-
-[AUTHOR]
-apkeditor
-
-[PACKAGE]
-*
-
-#Verifique se o nome do aplicativo está definido nos recursos
-[MATCH_GOTO]
-TARGET:
-    AndroidManifest.xml
-MATCH:
-    <application (.*)android:label="@string/(.*)"(.*)>
-REGEX:
-    true
-GOTO:
-    get_string_name
-[/MATCH_GOTO]
-
-# android:label=" -> android:label="2-
-[MATCH_REPLACE]
-NAME:
-    directly_rename
-TARGET:
-    AndroidManifest.xml
-MATCH:
-    <application (.*)android:label="(.*)>
-REGEX:
-    true
-REPLACE:
-    <application ${GROUP1}android:label="2-${GROUP2}>
-[/MATCH_REPLACE]
-
-[GOTO]
-GOTO:
-    end
-[/GOTO]
-
-#Obtenha o nome da string e atribua-o a STR_NAME
-[MATCH_ASSIGN]
-NAME:
-    get_string_name
-TARGET:
-    AndroidManifest.xml
-MATCH:
-    <application (.*)android:label="@string/(.*)"(.*)>
-REGEX:
-    true
-ASSIGN:
-    STR_NAME=${GROUP2}
-[/MATCH_ASSIGN]
-
-#Adicione algum código dentro do método onCreate após "invoke-super xxx"
-[MATCH_REPLACE]
-NAME:
-    modify_string_xml
-TARGET:
-    res/values/strings.xml
-MATCH:
-    <string name="${STR_NAME}">
-REGEX:
-    true
-REPLACE:
-    <string name="${STR_NAME}">2-
-[/MATCH_REPLACE]
-
-[DUMMY]
-NAME:
-    end
-[/DUMMY]</textarea>
+     <textarea id="editorContent" placeholder="" rows="10" oninput="updateLineNumbers()"></textarea>
     <br>
     </br>
-    <label for="file-input" id="file-label">Selecione o arquivo zip</label>
-    <input type="file" id="file-input" accept=".zip">
-    <button class="limpar" onclick="limpar()">Limpar</button>
-    <button id="save-btn">Salvar</button>
     
+    <label for="file-input" id="file-label">Selecione o arquivo ZIP</label>
+<input type="file" id="file-input" onchange="validateFile(this)" accept=".zip">
+	
+    <button id="save-btn">Salvar</button>
+    <button class="limpar" onclick="limpar()">Limpar</button>
+<label for="fileInput_1" id="file-label">+1</label>
+<input type="file" id="fileInput_1" class="file-input" multiple>
+    	
 <script src="script.js" defer></script>
 
 </body>
