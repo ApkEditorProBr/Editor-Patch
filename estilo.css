@@ -108,20 +108,25 @@ body {
   border-radius: 50%;
 }
 
+/*Luz vermelha*/
 .red-dot {
-    background-color: red;
+    background-color: #E70001;
 }
 
+/*Luz amarela*/
 .yellow-dot {
-    background-color: yellow;
+    background-color: #EEE300;
 }
 
+/*Luz verde*/
 .green-dot {
-    background-color: green;
+    background-color: #02B72B;
 }
 
+/*Luzes apagadas*/
 .cinza {
-    background-color: gray;
+    background-color: none;
+    opacity: 0.4;
 }
 
 /* Estilização do corpo do terminal */
@@ -151,10 +156,12 @@ textarea::-webkit-scrollbar-track {
   background-color: black;
 }
 
+/*Carregar*/
 .file-input {
   display: none;
 }
 
+/*Carregar mais um*/
 #file-label {
   margin-right: 5px;
   font-size: 11px;
