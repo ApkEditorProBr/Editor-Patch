@@ -8,8 +8,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: none;
   user-select: none;
+  height: 100vh;
 }
 
 /* Estilização do conteúdo do editor */
@@ -100,26 +101,27 @@ body {
 
 /* Estilização dos pontos do cabeçalho do terminal */
 .red-dot, .yellow-dot, .green-dot {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
+  display: inline-block;
   margin-right: 5px;
-  padding: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
 
-/* Estilização do ponto vermelho */
 .red-dot {
-  background-color: #ff605c;
+    background-color: red;
 }
 
-/* Estilização do ponto amarelo */
 .yellow-dot {
-  background-color: #ffd64d;
+    background-color: yellow;
 }
 
-/* Estilização do ponto verde */
 .green-dot {
-  background-color: #63be7b;
+    background-color: green;
+}
+
+.cinza {
+    background-color: gray;
 }
 
 /* Estilização do corpo do terminal */
