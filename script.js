@@ -10,7 +10,6 @@ function LuzVerde() {
     greenDot.classList.add('cinza');
     greenDot.classList.remove('verde');
   }, 2500);
-  limpar();
 }
 
 function packFiles() {
