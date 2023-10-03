@@ -1,3 +1,18 @@
+//Acender uma luz verde
+function LuzVerde() {
+  const greenDot = document.querySelector('.green-dot');
+
+  greenDot.classList.remove('cinza');
+  greenDot.classList.add('verde');
+
+  //Aguarda 2 segundos antes de voltar ao cinza
+  setTimeout(function() {
+    greenDot.classList.add('cinza');
+    greenDot.classList.remove('verde');
+  }, 2500);
+  limpar();
+}
+
 function packFiles() {
   // Obtém todos os elementos de entrada de arquivo com a classe 'file-input'
   var fileInputs = document.getElementsByClassName('file-input');
@@ -34,9 +49,19 @@ function validateFile(input) {
   
   // Verifica se a extensão do arquivo selecionado não está de acordo com a expressão regular
   if (!allowedExtensions.test(file.name)) {
-    // Exibe um alerta ao usuário
-    alert("Por favor, selecione um arquivo zip válido.");
-    // Limpa o valor do arquivo selecionado
+    
+    //Exibe um alerta de luz vermelha ao usuário
+    
+    const redDot = document.querySelector('.red-dot');
+
+      redDot.classList.remove('cinza');
+      redDot.classList.add('vermelho');
+
+setTimeout(function() {
+  redDot.classList.add('cinza');
+  redDot.classList.remove('vermelho');
+}, 2000);
+    //Limpa o valor do arquivo selecionado
     input.value = '';
   }
 }
@@ -45,6 +70,16 @@ function validateFile(input) {
 function limpar() {
   document.getElementById("editorContent").value = "";
 }
+
+const yellowDot = document.querySelector('.yellow-dot');
+
+yellowDot.classList.remove('cinza');
+yellowDot.classList.add('amarelo');
+
+setTimeout(function() {
+  yellowDot.classList.add('cinza');
+  yellowDot.classList.remove('amarelo');
+}, 2000);
 
 //Função que é executada quando a janela é carregada
 window.onload = function() {
@@ -81,9 +116,6 @@ window.onload = function() {
                 .then(function (content) {
                   //Define o conteúdo do editor de texto
                   editor.value = content;
-
-                  //Atualiza as linhas numéricas
-                  updateLineNumbers();
                 });
             }
           });
