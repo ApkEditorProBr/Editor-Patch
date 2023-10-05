@@ -14,6 +14,7 @@ body {
 
 /* Estilização do conteúdo do editor */
 #editorContent {
+  resize: none;
   width: 97%;
   height: 250px;
   font-family: 'Courier New', Courier, monospace;
