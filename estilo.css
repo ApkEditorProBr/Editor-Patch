@@ -1,8 +1,7 @@
-/* Estilização do fundo da página */
-body {
+/* Cidade GIF {
   font-size: 15px;
   background-size: cover;
-  background-image: url(Cidade GIF);
+  background-image: url(fundo);
   background-repeat: no-repeat;
   color: #fff;
   display: flex;
