@@ -3,6 +3,7 @@
   background-size: cover;
   background-image: url(fundo);
   background-repeat: no-repeat;
+  background-color: black;
   color: #fff;
   display: flex;
   justify-content: center;
